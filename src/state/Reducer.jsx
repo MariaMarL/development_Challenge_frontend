@@ -4,11 +4,11 @@ const reducer = (state, action) => {
       case 'add-todo':
         return payload
       case 'remove-todo':
-        const parentCategory = state.find((category) => category.id === payload.FKCategoryId)
+        const parentCategory = state.find((category) => category.id === payload.fkCategoryId)
         if (parentCategory) {
-          const filteredList = parentCategory.todoList.filter((todo) => todo.id !== payload.id)
+          const filteredList = parentCategory.toDoList.filter((todo) => todo.id !== payload.id)
           const newState = state.map((category) =>
-            category.id === parentCategory.id ? { ...parentCategory, todoList: filteredList } : category
+            category.id === parentCategory.id ? { ...parentCategory, toDoList: filteredList } : category
           )
           return newState
         }

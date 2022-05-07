@@ -7,10 +7,13 @@ const Todo = ({ todo }) => {
   const deleteSingleToDo = async (todo) => {
     const response = await deleteToDo(todo)
     if(response.status === 200){
-      console.log("borrando");
       dispatch({ type: 'remove-todo', payload: todo })
     }
   }
+  const decorationDone = {
+    textDecoration: "line-through",
+  };
+  
   const updateCheck = async (todo) => {
     const todoCheck = { ...todo, done: !todo.done }
     const newState = await updateToDo(todoCheck)
@@ -20,7 +23,7 @@ const Todo = ({ todo }) => {
   }
   return (
     <div style={{ border: 'solid black 1px' }}>
-      <h3>{todo.task}</h3>
+      <h3 style={todo.done ? decorationDone : {}}>{todo.task} </h3>
       <input type='checkbox' checked={todo.done} onChange={() => updateCheck(todo)} />
       <button onClick={() => deleteSingleToDo(todo)}>Delete</button>
       <button>Update</button>

@@ -6,7 +6,7 @@ const TodoForm = ({ categoryParent }) => {
   const { dispatch } = useContext(Context)
   const [userInput, setUserInput] = useState('')
   const onSubmitToDo = async (event) => {
-    console.log(event);
+   
     event.preventDefault()
     const postTodo = { task: userInput, fkCategoryId: categoryParent.id, done: false }
     const newState = await saveToDo(postTodo)
