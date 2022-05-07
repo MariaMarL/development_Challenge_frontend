@@ -1,15 +1,15 @@
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import { Context } from '../state/ContextProvider'
-import {saveCategory} from '../state/ContextProvider'
+import {saveCategories} from '../service/categoryService'
 
 const CategoryForm = () => {
   const { dispatch } = useContext(Context)
   const [title, setTitle] = useState("")
   const onSubmit = async (e) => {
-    e.preDefault()
+    e.preventDefault()
     if(title){
       const newCategory = {categoryName: title}
-      const response = await saveCategory(newCategory)
+      const response = await saveCategories(newCategory)
       dispatch({type: "add-category", payload: response})
       setTitle("")
     }

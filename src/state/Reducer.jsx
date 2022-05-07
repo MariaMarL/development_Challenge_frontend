@@ -1,4 +1,4 @@
-export const reducer = (state, action) => {
+const reducer = (state, action) => {
     const { type, payload } = action
     switch (type) {
       case 'add-todo':
@@ -12,7 +12,7 @@ export const reducer = (state, action) => {
           )
           return newState
         }
-        return state
+        //return state
       case 'update-todo':
         return payload
 
@@ -30,3 +30,4 @@ export const reducer = (state, action) => {
     }
   }
   
+  export default reducer

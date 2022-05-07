@@ -1,13 +1,14 @@
 import { useContext, useState } from 'react'
-import { saveToDo } from '../services/ToDoServices'
+import { saveToDo } from '../service/todoService'
 import { Context } from '../state/ContextProvider'
 
 const TodoForm = ({ categoryParent }) => {
   const { dispatch } = useContext(Context)
   const [userInput, setUserInput] = useState('')
-  const onSubmitToDo = async (e) => {
-    e.preventDefault()
-    const postTodo = { task: userInput, fkCategoryId: categoryParent.fkCategoryId, done: false }
+  const onSubmitToDo = async (event) => {
+    console.log(event);
+    event.preventDefault()
+    const postTodo = { task: userInput, fkCategoryId: categoryParent.id, done: false }
     const newState = await saveToDo(postTodo)
     if(newState){
       dispatch({ type: 'add-todo', payload: newState })
@@ -15,9 +16,9 @@ const TodoForm = ({ categoryParent }) => {
     }
   }
   return (
-    <form onSubmit={(e) => onSubmitToDo(e)}>
+    <form onSubmit={(event) => onSubmitToDo(event)}>
       <label>
-        <input placeholder='New toDo' onChange={(e) => setUserInput(e.target.value)} value={userInput} />
+        <input placeholder='New toDo' onChange={(event) => setUserInput(event.target.value)} value={userInput} />
       </label>
     </form>
   )

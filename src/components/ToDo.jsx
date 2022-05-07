@@ -7,19 +7,17 @@ const Todo = ({ todo }) => {
   const deleteSingleToDo = async (todo) => {
     const response = await deleteToDo(todo)
     if(response.status === 200){
+      console.log("borrando");
       dispatch({ type: 'remove-todo', payload: todo })
     }
   }
-
   const updateCheck = async (todo) => {
-    // fetch METHOD PUT
     const todoCheck = { ...todo, done: !todo.done }
     const newState = await updateToDo(todoCheck)
     if(newState){
       dispatch({ type: 'update-todo', payload: newState })
     }
   }
-
   return (
     <div style={{ border: 'solid black 1px' }}>
       <h3>{todo.task}</h3>
@@ -29,5 +27,4 @@ const Todo = ({ todo }) => {
     </div>
   )
 }
-
 export default Todo

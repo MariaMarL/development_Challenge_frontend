@@ -1,4 +1,4 @@
-const ENDPOINT = 'http://localhost:8081/api/todo'
+const ENDPOINT = 'http://localhost:8081/api/todos'
 
 const HEADERS = {
   Accept: 'application/json',

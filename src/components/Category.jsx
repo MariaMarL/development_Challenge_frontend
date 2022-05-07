@@ -7,7 +7,7 @@ import {deleteCategories} from '../service/categoryService'
 const Category = ({ category }) => {
   const { dispatch } = useContext(Context)
   const deleteSingleCategory = async (category) => {
-    const response = await deleteCategory(category)
+    const response = await deleteCategories(category)
     if(response.status == 200){
       dispatch({ type: 'remove-category', payload: category })
     }
@@ -23,7 +23,5 @@ const Category = ({ category }) => {
         ))}
       </li>
     </ul>
-  )
-}
-
+  )}
 export default Category
