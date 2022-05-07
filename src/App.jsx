@@ -1,10 +1,15 @@
 import './App.css'
+import CategoryForm from './components/CategoryForm'
+import CategoryList from './components/CategoryList'
+import ContextProvider from './state/ContextProvider'
 
 function App() {
-  
   return (
-    <div className="App">
-      <h1>hello there</h1>
+    <div className='App'>
+      <ContextProvider>
+        <CategoryForm />
+        <CategoryList />
+      </ContextProvider>
     </div>
   )
 }
