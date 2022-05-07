@@ -13,7 +13,7 @@ const Todo = ({ todo }) => {
   const decorationDone = {
     textDecoration: "line-through",
   };
-  
+
   const updateCheck = async (todo) => {
     const todoCheck = { ...todo, done: !todo.done }
     const newState = await updateToDo(todoCheck)
@@ -21,12 +21,13 @@ const Todo = ({ todo }) => {
       dispatch({ type: 'update-todo', payload: newState })
     }
   }
+
   return (
     <div style={{ border: 'solid black 1px' }}>
       <h3 style={todo.done ? decorationDone : {}}>{todo.task} </h3>
       <input type='checkbox' checked={todo.done} onChange={() => updateCheck(todo)} />
       <button onClick={() => deleteSingleToDo(todo)}>Delete</button>
-      <button>Update</button>
+      {!todo.done && <button>Update</button>}
     </div>
   )
 }
