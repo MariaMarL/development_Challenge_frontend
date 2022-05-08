@@ -17,7 +17,7 @@ const TodoForm = ({ categoryParent }) => {
   }
   return (
     <form onSubmit={(event) => onSubmitToDo(event)}>
-      <label>
+      <label id="todos">
         <input placeholder='New toDo' onChange={(event) => setUserInput(event.target.value)} value={userInput} />
       </label>
     </form>

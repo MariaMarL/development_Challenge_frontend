@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react'
 import { Context } from '../state/ContextProvider'
 import {saveCategories} from '../service/categoryService'
+import "./list.css";
 
 const CategoryForm = () => {
   const { dispatch } = useContext(Context)
@@ -17,9 +18,11 @@ const CategoryForm = () => {
 
   return (
     <form onSubmit={(e) => onSubmit(e)}>
+      <h1>Add Category  </h1>
       <label>
         <input value={title} onChange={(e) => setTitle(e.target.value)} placeholder='New Category' />
       </label>
+    
     </form>
   )
 }

@@ -1,0 +1,38 @@
+.btn {
+    background-color: #34a3a3 ;
+    border-color: #34a3a3;
+    color: white;
+    width: 1.5rem;
+    justify-content: center;
+    height: 1.5rem;
+    font-size: 15px ;
+    border-radius: .3rem;
+    padding: 3px 5px;
+    margin: 5px 5px;
+    outline: 0;
+} 
+
+#Erase{
+    background-color: rgb(201, 27, 27) ;
+    border-color:rgb(201, 27, 27) ;
+}
+ul{
+    border: dotted 1px black;
+    padding: 30px 30px;
+    margin: 0 auto;
+    height: auto;
+    
+}
+
+h3,
+h2{
+
+    display: inline;
+    ;
+}
+
+#id{
+    column-count:3;
+    column-rule:4px dotted gray;
+}
+

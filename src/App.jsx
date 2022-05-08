@@ -5,7 +5,7 @@ import ContextProvider from './state/ContextProvider'
 
 function App() {
   return (
-    <div className='App'>
+    <div className='App' id="app">
       <ContextProvider>
         <CategoryForm />
         <CategoryList />
